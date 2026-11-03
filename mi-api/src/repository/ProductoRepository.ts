@@ -34,7 +34,10 @@ export class ProductoRepository {
     }
 
     async update(id: number, productoData: Partial<Producto>): Promise<Producto | null> {
-        await this.repository.update(id, productoData);
+        const { categoria, detallesVenta, ...dataToUpdate } = productoData as any;
+        if (Object.keys(dataToUpdate).length > 0) {
+            await this.repository.update(id, dataToUpdate);
+        }
         return await this.findById(id);
     }
 

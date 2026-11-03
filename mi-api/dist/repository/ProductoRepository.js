@@ -7,7 +7,7 @@ class ProductoRepository {
     repository = data_source_js_1.AppDataSource.getRepository(Producto_js_1.Producto);
     async findAll() {
         return await this.repository.find({
-            relations: { categoria: true, detallesVenta: true }
+            relations: { categoria: true }
         });
     }
     async findById(id) {
@@ -30,7 +30,10 @@ class ProductoRepository {
         return await this.repository.save(producto);
     }
     async update(id, productoData) {
-        await this.repository.update(id, productoData);
+        const { categoria, detallesVenta, ...dataToUpdate } = productoData;
+        if (Object.keys(dataToUpdate).length > 0) {
+            await this.repository.update(id, dataToUpdate);
+        }
         return await this.findById(id);
     }
     async updateStock(id, cantidad) {
