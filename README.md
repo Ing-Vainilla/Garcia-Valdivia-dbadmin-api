@@ -1,2 +1,3 @@
 # García-Valdivia-dbadmin-api
-API
+Esta es mi API. Se usó con Postman y DBeaver.
+:)
