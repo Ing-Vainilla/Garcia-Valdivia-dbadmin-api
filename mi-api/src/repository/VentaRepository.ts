@@ -60,7 +60,10 @@ export class VentaRepository {
     }
 
     async update(id: number, ventaData: Partial<Venta>): Promise<Venta | null> {
-        await this.repository.update(id, ventaData);
+        const { detalles, ...dataToUpdate } = ventaData as any;
+        if (Object.keys(dataToUpdate).length > 0) {
+            await this.repository.update(id, dataToUpdate);
+        }
         return await this.findById(id);
     }
 

@@ -55,7 +55,10 @@ class VentaRepository {
         return await this.repository.save(venta);
     }
     async update(id, ventaData) {
-        await this.repository.update(id, ventaData);
+        const { detalles, ...dataToUpdate } = ventaData;
+        if (Object.keys(dataToUpdate).length > 0) {
+            await this.repository.update(id, dataToUpdate);
+        }
         return await this.findById(id);
     }
     async delete(id) {

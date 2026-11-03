@@ -5,10 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_routes_js_1 = __importDefault(require("./routes/user.routes.js"));
+const producto_route_js_1 = __importDefault(require("./routes/producto.route.js"));
+const venta_route_js_1 = __importDefault(require("./routes/venta.route.js"));
 const app = (0, express_1.default)();
 // Middleware para parsear JSON
 app.use(express_1.default.json());
-app.use('/api/', user_routes_js_1.default);
+// Registro de rutas
+app.use('/api', user_routes_js_1.default);
+app.use('/api', producto_route_js_1.default);
+app.use('/api', venta_route_js_1.default);
 // Ruta de prueba/salud
 app.get('/api/status', (req, res) => {
     res.json({ status: 'OK', message: 'API funcionando correctamente' });
