@@ -1,0 +1,26 @@
+
+GET
+solo url
+
+
+
+POST
+URL 
+{
+    "name": "",
+    "lastname":""
+}
+
+
+
+DELETE 
+url/{id}
+
+
+
+PUT
+url/{id}
+{
+    "name": "Juan Carlos",
+    "lastname":""
+}
