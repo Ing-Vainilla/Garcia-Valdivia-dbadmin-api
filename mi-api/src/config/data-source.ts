@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import dotenv from "dotenv";
 
+// Entidades de LogiExpress
 import { Cliente } from "../entity/Cliente.js";
 import { Direccion } from "../entity/Direccion.js";
 import { Almacen } from "../entity/Almacen.js";
@@ -9,6 +10,12 @@ import { Envio } from "../entity/Envio.js";
 import { Paquete } from "../entity/Paquete.js";
 import { HistorialRastreo } from "../entity/HistorialRastreo.js";
 import { AuditoriaEnvio } from "../entity/AuditoriaEnvio.js";
+
+// Entidades anteriores
+import { Categoria } from "../entity/Categoria.js";
+import { Producto } from "../entity/Producto.js";
+import { Venta } from "../entity/Venta.js";
+import { DetalleVenta } from "../entity/DetalleVenta.js";
 
 dotenv.config();
 
@@ -29,5 +36,9 @@ export const AppDataSource = new DataSource({
         Paquete,
         HistorialRastreo,
         AuditoriaEnvio,
+        Categoria,
+        Producto,
+        Venta,
+        DetalleVenta
     ],
 });
