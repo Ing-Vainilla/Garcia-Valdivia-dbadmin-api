@@ -221,7 +221,7 @@ export const getEnviosActivos = async (req: Request, res: Response) => {
 
         return res.status(200).json({
             status: 200,
-            message: "Envíos activos obtenidos exitosamente mediante TypeORM QueryBuilder",
+            message: "Envíos activos obtenidos exitosamente",
             total: envios.length,
             data: envios
         });

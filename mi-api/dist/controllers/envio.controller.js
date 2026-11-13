@@ -54,7 +54,7 @@ const createEnvio = async (req, res) => {
         });
         return res.status(201).json({
             status: 201,
-            message: "Envío y paquetes iniciales registrados exitosamente con TypeORM QueryRunner",
+            message: "Envío y paquetes iniciales registrados exitosamente",
             data: envioCompleto
         });
     }
@@ -203,7 +203,7 @@ const getEnviosActivos = async (req, res) => {
             .getMany();
         return res.status(200).json({
             status: 200,
-            message: "Envíos activos obtenidos exitosamente mediante TypeORM QueryBuilder",
+            message: "Envíos activos obtenidos exitosamente",
             total: envios.length,
             data: envios
         });
